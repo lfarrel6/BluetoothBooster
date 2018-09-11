@@ -1,0 +1,7 @@
+{
+  "name": "ionic start BB-Interface",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
