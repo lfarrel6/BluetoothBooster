@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+
 
 @Component({
   selector: 'page-home',
@@ -7,8 +8,12 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  addr: string ='';
 
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+
+  submit(address){
+  	this.navCtrl.setRoot('EntryPage', {booster: address});
   }
 
 }
