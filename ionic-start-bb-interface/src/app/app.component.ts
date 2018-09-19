@@ -1,21 +1,19 @@
 import { Component } from '@angular/core';
-import { ViewChildren, QueryList } from '@angular/core';
+import { ViewChild } from '@angular/core';
 import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+import { LandingPage } from '../pages/landing/landing';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChildren(Nav) nav: QueryList<Nav>;
-  rootPage:any = HomePage;
+  @ViewChild(Nav) nav: Nav;
+  rootPage:any = LandingPage;
 
-  pages = [{title: 'Save Booster', icon: 'bookmark', func: function(){
-    console.log('save');
-  }},
-  {title: 'Disconnect', icon: 'exit', func: this.disconnect}];
+  pages = [{title: 'Save Booster', icon: 'bookmark', page: 'Save'},
+  {title: 'Disconnect', icon: 'exit', page: LandingPage}];
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -27,13 +25,15 @@ export class MyApp {
   }
 
   ngAfterViewInit(){
-    this.nav.changes.subscribe(navigators => {
-      console.log(JSON.stringify(navigators));
-    });
   }
 
-  disconnect(){
-    
+  openPage(p){
+    if(p==='Save')
+      console.log('Save');
+    else{
+      console.log('Tidy up');
+      this.nav.setRoot(p);
+    }
   }
 
 }

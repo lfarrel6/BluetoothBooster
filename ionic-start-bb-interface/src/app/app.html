@@ -8,7 +8,7 @@
   <ion-content>
     <ion-list>
 
-      <button menuClose ion-item icon-left *ngFor="let p of pages" (click)="p.func()">
+      <button menuClose ion-item icon-left *ngFor="let p of pages" (click)="openPage(p.page)">
       	<ion-icon name={{p.icon}} padding></ion-icon>
       	{{p.title}}
       </button>

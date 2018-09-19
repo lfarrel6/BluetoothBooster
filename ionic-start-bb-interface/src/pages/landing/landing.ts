@@ -3,10 +3,10 @@ import { NavController, NavParams } from 'ionic-angular';
 
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-landing',
+  templateUrl: 'landing.html'
 })
-export class HomePage {
+export class LandingPage {
 
   addr: string ='';
 
